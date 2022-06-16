@@ -1,0 +1,107 @@
+.header-bg {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+
+  padding-top: 30px;
+}
+
+.cart {
+  position: relative;
+}
+.cart i {
+  color: #17a2b8;
+  font-size: 30px;
+}
+
+.button-click {
+  display: flex;
+  justify-content: center;
+}
+.rounded-rad {
+  border-radius: 16px;
+}
+.img-phone {
+  display: flex;
+  justify-content: center;
+}
+.w-img {
+  width: 80%;
+  padding: 16px;
+}
+
+.custom-container {
+  width: 89%;
+  margin-left: 5.5%;
+}
+.custom-select {
+  width: 80%;
+}
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+.detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-left: 17%;
+}
+.modal-body .table {
+  table-layout: fixed;
+}
+#number-change {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  color: red;
+  font-size: 13px;
+  font-weight: 700;
+  background: white;
+
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  line-height: 1rem;
+}
+.sumMoney {
+  text-align: end;
+}
+.money {
+  font-size: 20px;
+}
+.cartNull {
+  font-size: 24px;
+  text-align: center;
+  color: #1a43c9;
+}
+.btn-click {
+  font-size: 15px;
+}
+.detail-img {
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+  width: 85%;
+  margin-bottom: 20px;
+}
+.finish {
+  font-size: 13px;
+}
+
+.sumPayment {
+  font-size: 18px;
+  font-weight: 600;
+}
+.sumNumber {
+  font-size: 22px;
+  color: red;
+}
+#exampleModal2 .modal-footer {
+  border: none;
+  padding-top: 0;
+  justify-content: center;
+}

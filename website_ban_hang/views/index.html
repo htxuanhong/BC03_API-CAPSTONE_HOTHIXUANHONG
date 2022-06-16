@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shopping</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <div class="header-bg">
+      <div class="custom-container">
+        <div class="row d-flex justify-content-md-end mb-4">
+          <div class="col-3">
+            <select
+              id="txt-select"
+              class="custom-select custom-select-xs"
+              onchange="search()"
+            >
+              <option value="">Tất cả</option>
+              <option>Iphone</option>
+              <option>Samsung</option>
+            </select>
+          </div>
+          <div class="cart">
+            <i
+              class="fa fa-shopping-cart"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            ></i>
+            <div id="number-change">0</div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalLabel">
+                  Giỏ hàng
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="body-modal"></div>
+              <div class="modal-footer" id="group-action-cart">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  onclick="deleteCart()"
+                >
+                  Xóa giỏ hàng
+                </button>
+                <div>
+                  <button
+                    type="button"
+                    class="btn btn-info"
+                    data-toggle="modal"
+                    data-dismiss="modal"
+                    data-target="#exampleModal1"
+                    onclick="displayToOrder()"
+                  >
+                    Đặt ngay nào
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModal2"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                Thanh toán thành công, cám ơn bạn đã đặt hàng!
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger finish"
+                  data-dismiss="modal"
+                >
+                  Xong
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="exampleModal1"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-body" id="ProductPayment"></div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="payment()"
+                  data-toggle="modal"
+                  data-dismiss="modal"
+                  data-target="#exampleModal2"
+                >
+                  Thanh Toán
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  data-dismiss="modal"
+                >
+                  Hủy bỏ
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row main_cart" id="card-item"></div>
+      </div>
+
+      <div class="detail" id="detail-product"></div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- axios -->
+
+    <script src="../controller/productController.js"></script>
+    <script src="../controller/cartController.js"></script>
+    <script src="../controller/main.js"></script>
+  </body>
+</html>
